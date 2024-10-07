@@ -41,8 +41,8 @@ def seg():
                 comp = fosf - 16
             elif fosf > 11:
                 comp = fosf - 11
-            elif fosf > 5:
-                comp = fosf - 5
+            elif fosf > 6:
+                comp = fosf - 6
             elif fosf > 1:
                 comp = fosf - 1
 
