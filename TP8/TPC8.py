@@ -65,12 +65,12 @@ print (reduxInt(38))
 # d) Índice da primeira ocorrência na string
 def myIndexOf(s1, s2):
     i = 0
+    resultado = -1
     while i <= len(s1) - len(s2):
         if s1[i:i+len(s2)] == s2:
-            return i
-        else:
-            i = i + 1
-    return -1
+            resultado = i
+        i = i + 1
+    return resultado
 print(myIndexOf("Hoje está um belo dia de sol!", "belo"))
 print(myIndexOf("Hoje está um belo dia de sol!", "chuva"))
 
