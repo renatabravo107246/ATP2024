@@ -25,20 +25,21 @@ def lugardisponivel(cinema, filme, lugar):
     lugar_disponivel = False
     for sala in cinema:
         if sala[2] == filme:
-            return lugar not in sala[1] and 0 < lugar <= sala[0]
-    return False
+            lugar_disponivel = lugar not in sala[1] and 0 < lugar <= sala[0]
+    return lugar_disponivel
 
 def vendebilhete(cinema, filme, lugar):
+    encontrou_filme = False
     for sala in cinema:
         if sala[2]== filme:
+            encontrou_filme = True
             if lugar not in sala[1] and 0 < lugar <= sala[0]:
                 sala[1].append(lugar)
                 print(f"Compraste o bilhete para o lugar {lugar} do filme {filme} com sucesso!")
-                return cinema
             else:
                 print("Esse lugar já não está disponível ou não existe")
-                return cinema
-    print("Esse filme não está em exibição")
+    if encontrou_filme == False:
+        print("Esse filme não está em exibição")
     return cinema
 
 def listardisponibilidades(cinema):
@@ -52,12 +53,16 @@ def listardisponibilidades(cinema):
     return
 
 def inserirSala(cinema, sala):
+    sala_exibida = False
     for s in cinema:
         if s[2] == sala[2]:
-            print(f"O filme {sala[2]} já está a ser exibido noutra sala")
-            return cinema
-    cinema.append(sala)
-    print(f"A sala com o filme '{sala[2]}' com {sala[0]} lugares foi adicionada ao cinema")
+            sala_exibida = True
+    if sala_exibida == True:
+        mensagem = f"O filme {sala[2]} já está a ser exibido noutra sala"
+    else:
+        cinema.append(sala)
+        mensagem = f"A sala com o filme '{sala[2]}' com {sala[0]} lugares foi adicionada ao cinema"
+    print(mensagem)
     input("Prime qualquer tecla para voltares ao menu")
     return cinema
 
