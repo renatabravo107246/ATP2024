@@ -77,7 +77,7 @@ def menu():
             menu_stats()
             option = 0
             stop_stats = False
-            while not stop:
+            while not stop_stats:
                 option = int(input("Insira a opção desejada: "))
                 if option == 1:
                     mp.pub_ano(dataset)
